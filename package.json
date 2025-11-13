@@ -1,0 +1,19 @@
+{
+  "name": "cps510-evl-library-database",
+  "version": "1.0.0",
+  "description": "CPS510-EVL-Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eleanortien/CPS510-EVL-Library-Database.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eleanortien/CPS510-EVL-Library-Database/issues"
+  },
+  "homepage": "https://github.com/eleanortien/CPS510-EVL-Library-Database#readme"
+}
