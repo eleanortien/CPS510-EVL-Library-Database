@@ -1,5 +1,5 @@
-# CPS530-EVL-Library-Database
-CPS 530 Database Assignment
+# CPS510-EVL-Library-Database
+CPS 510 Database Assignment
 
 - [ ] oracle connection
 - [ ] create tables
