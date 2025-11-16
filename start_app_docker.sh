@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IMAGE_NAME="evl-lib-image"
-CONTAINER_NAME="evl-lib-image"
+CONTAINER_NAME="evl-library-app"
 DOCKERFILE_PATH="./Dockerfile"
 
 docker build -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" .

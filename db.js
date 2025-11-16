@@ -4,7 +4,6 @@ const oracledb = require('oracledb');
 // Initialize Thick mode
 try {
     oracledb.initOracleClient();
-    console.log('node-oracledb running in Thick mode.');
 } catch (err) {
     console.error('Error initializing Oracle Client:', err);
     process.exit(1); // Exit if initialization fails
@@ -18,7 +17,6 @@ async function runApp()
         password: process.env.PASSWORD,
         connectionString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))",
     }
-    console.log(config);
     let connection;
     try {
         connection = await oracledb.getConnection(config);
