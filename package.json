@@ -16,5 +16,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test"
+  },
+  "dependencies": {
+    "oracledb": "^6.10.0"
   }
 }
