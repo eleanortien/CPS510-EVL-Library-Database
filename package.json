@@ -16,5 +16,9 @@
   "main": "index.js",
   "scripts": {
     "test": "test"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "oracledb": "^6.10.0"
   }
 }
