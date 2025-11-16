@@ -17,4 +17,6 @@ COPY       . .
 RUN        npm install 
 EXPOSE     8000
 
-ENTRYPOINT ["node", "db.js"]
+RUN npm run build 
+
+ENTRYPOINT ["node", "build/app.js"]
