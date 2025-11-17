@@ -338,8 +338,8 @@ export const Statements = {
         }
     ],
     // Simple queries
-    simpleQueries: [
-        `SELECT b.book_ID, title, author, genre, COUNT(c.copy_ID) AS Number_Available
+    simpleQueries: {
+        1: `SELECT b.book_ID, title, author, genre, COUNT(c.copy_ID) AS Number_Available
         FROM book b, book_copy c
         WHERE b.book_ID = c.book_ID
             AND b.author = 'J. K. Rowling'
@@ -348,7 +348,7 @@ export const Statements = {
             FROM borrows)
         GROUP BY b.book_ID, title, author, genre
         ORDER BY b.book_ID`,
-        `SELECT DISTINCT b.member_ID, username, bk.title, c.copy_ID, TRUNC(SYSDATE) - TRUNC(b.due_date) AS Days_Overdue
+        2: `SELECT DISTINCT b.member_ID, username, bk.title, c.copy_ID, TRUNC(SYSDATE) - TRUNC(b.due_date) AS Days_Overdue
         FROM lib_member l, borrows b, book bk, book_copy c
         WHERE l.member_ID = b.member_ID
             AND b.book_ID = bk.book_ID
@@ -356,7 +356,7 @@ export const Statements = {
             AND b.copy_ID = c.copy_ID
             AND TRUNC(b.due_date) < TRUNC(SYSDATE)
         ORDER BY Days_Overdue DESC`,
-        `SELECT
+        3: `SELECT
             f.staff_ID,
             f.first_name,
             f.last_name,
@@ -370,47 +370,47 @@ export const Statements = {
         LEFT JOIN full_time_staff f2 ON f2.managed_by = f.staff_ID
         GROUP BY f.staff_ID, f.first_name, f.last_name
         ORDER BY Total_Managees DESC`,
-        `SELECT staff_ID, first_name, last_name, s.works_at, b.branch_name
+        4: `SELECT staff_ID, first_name, last_name, s.works_at, b.branch_name
         FROM part_time_staff s, branch b
         WHERE s.works_at = b.branch_ID
         AND s.works_at = 2
         GROUP BY staff_ID, first_name, last_name, s.works_at, b.branch_name
         HAVING AVG(hourly_rate) > (SELECT AVG(hourly_rate) from part_time_staff)`,
-        `SELECT staff_ID, first_name, last_name, total_hours
+        5: `SELECT staff_ID, first_name, last_name, total_hours
         FROM volunteer_staff
         WHERE total_hours = (SELECT MAX(total_hours) FROM volunteer_staff)`,
-        `SELECT address_city, COUNT(branch_ID)
+        6: `SELECT address_city, COUNT(branch_ID)
         FROM branch
         WHERE address_province = 'Ontario'
         GROUP BY address_city`,
-        `SELECT title, author, publish_date, genre
+        7: `SELECT title, author, publish_date, genre
         FROM book
         WHERE publish_date = (SELECT MIN(publish_date) FROM book WHERE genre = 'Fantasy')`,
-        `SELECT l.member_ID, username, COUNT(b.book_ID) AS NUM_BORROWED
+        8: `SELECT l.member_ID, username, COUNT(b.book_ID) AS NUM_BORROWED
         FROM lib_member l, borrows b
         WHERE l.member_ID = b.member_ID
         GROUP BY l.member_ID, username
         HAVING COUNT(b.book_ID) > 0
         ORDER BY NUM_BORROWED DESC, l.member_ID ASC`,
-        `SELECT located_at AS branch_ID, COUNT(DISTINCT book_ID) AS NUM_BOOKS
+        9: `SELECT located_at AS branch_ID, COUNT(DISTINCT book_ID) AS NUM_BOOKS
         FROM book_copy
         GROUP BY located_at`,
-        `SELECT provided_by AS supplier_ID, COUNT(DISTINCT book_ID) AS NUM_BOOKS, COUNT(copy_ID)AS TOTAL_VOLUMES
+        10: `SELECT provided_by AS supplier_ID, COUNT(DISTINCT book_ID) AS NUM_BOOKS, COUNT(copy_ID)AS TOTAL_VOLUMES
         FROM book_copy
         GROUP BY provided_by`,
-        `SELECT member_ID, book_ID, place_in_queue
+        11: `SELECT member_ID, book_ID, place_in_queue
         FROM queue_hold
         WHERE place_in_queue = 0
         ORDER BY member_ID`,
-        `SELECT s.supplier_ID, supplier_name, email, phone_number
+        12: `SELECT s.supplier_ID, supplier_name, email, phone_number
         FROM supplier s
         LEFT JOIN book_copy b ON s.supplier_ID = b.provided_by
         HAVING COUNT(copy_ID) >= 10
         GROUP BY s.supplier_ID, supplier_name, email, phone_number`,
-    ],
+    },
     // Advanced queries
-    advancedQueries: [
-        `SELECT
+    advancedQueries: {
+        1: `SELECT
             m.username,
             b.title,
             q.place_in_queue
@@ -418,7 +418,7 @@ export const Statements = {
         WHERE m.member_id = q.member_id
             AND m.username = 'lsu'
             AND b.book_id = q.book_id`,
-        `SELECT br.branch_id, br.branch_name, br.full_address,
+        2: `SELECT br.branch_id, br.branch_name, br.full_address,
         COUNT(DISTINCT staff.staff_role_id) as number_of_staff,
         COUNT(DISTINCT b.book_id) as number_of_distinct_books
         FROM (
@@ -437,13 +437,13 @@ export const Statements = {
             ) staff ON staff.works_at = br.branch_id
         LEFT JOIN book_copy b ON b.located_at = br.branch_id
         GROUP BY br.branch_id, br.branch_name, br.full_address`,
-        `SELECT b.book_ID, b.title, COUNT(DISTINCT h.place_in_queue) + COUNT(DISTINCT bo.copy_ID) AS POPULARITY
+        3: `SELECT b.book_ID, b.title, COUNT(DISTINCT h.place_in_queue) + COUNT(DISTINCT bo.copy_ID) AS POPULARITY
         FROM book b
         LEFT JOIN borrows bo ON b.book_ID = bo.book_ID
         LEFT JOIN queue_hold h ON b.book_ID = h.book_ID
         GROUP BY b.book_ID, b.title
         ORDER BY POPULARITY DESC`,
-        `SELECT username
+        4: `SELECT username
         FROM lib_member l
         WHERE EXISTS (
             SELECT b.member_id
@@ -457,14 +457,14 @@ export const Statements = {
             FROM queue_hold q
             WHERE q.member_id = l.member_id
         )`,
-        `SELECT
+        5: `SELECT
             s.supplier_id,
             s.supplier_name,
             ROUND ((COUNT(b.copy_id) / (SELECT COUNT(copy_id) FROM book_copy) ) * 100, 3) AS donation_percentage
         FROM supplier s
         JOIN book_copy b ON b.provided_by = s.supplier_id
         GROUP BY s.supplier_id, s.supplier_name`,
-        `SELECT
+        6: `SELECT
             book.title
         FROM book_copy b
         JOIN book ON b.book_id = book.book_id
@@ -475,6 +475,6 @@ export const Statements = {
         FROM book_copy b
         JOIN book ON b.book_id = book.book_id
         WHERE b.located_at != 2`,
-    ]
+    }
 }
 
