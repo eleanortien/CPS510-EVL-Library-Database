@@ -72,6 +72,8 @@ export async function drops_tables()
 
     }
 
+    console.log("Successfully dropped tables.");
+
     if (connection)
     {
         try {
@@ -113,6 +115,8 @@ export async function create_tables()
         }
           
       }
+
+      console.log("Successfully created tables.");
 
 
       if (connection)
@@ -156,6 +160,7 @@ export async function populate_tables()
         }
           
       }
+      console.log("Successfully populated tables.");
 
 
       if (connection)

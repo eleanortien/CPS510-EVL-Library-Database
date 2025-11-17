@@ -147,13 +147,13 @@ export const Statements = {
                 }
             },
             binds: [
-                {id: 0, title: 'Harry Potter and the Sorcerers Stone', author: 'J. K. Rowling', publish_date: '1997-06-26', genre: 'Fantasy'},
-                {id: 1, title: 'Harry Potter and the Chamber of Secrets', author: 'J. K. Rowling', publish_date: '1998-07-02', genre: 'Fantasy'},
-                {id: 2, title: 'The Lord of the Rings', author: 'John Ronald Reuel Tolkien', publish_date: '1954-07-29', genre: 'Fantasy'},
-                {id: 3, title: 'Sapiens: A Brief History of Humankind', author: 'Yuval Noah Harari', publish_date: '2011-01-01', genre: 'Non-Fiction'},
-                {id: 4, title: 'Dune', author: 'Frank Herbert', publish_date: '2011-08-01', genre: 'Science Fiction'},
-                {id: 5, title: 'It', author: 'Stephen King', publish_date: '1986-09-15', genre: 'Horror'},
-                {id: 6, title: 'Twilight', author: 'Stephenie Meyer', publish_date: '2005-09-27', genre: 'Romance'}
+                {id: 0, title: 'Harry Potter and the Sorcerers Stone', author: 'J. K. Rowling', publish_date: new Date('1997-06-26'), genre: 'Fantasy'},
+                {id: 1, title: 'Harry Potter and the Chamber of Secrets', author: 'J. K. Rowling', publish_date: new Date('1998-07-02'), genre: 'Fantasy'},
+                {id: 2, title: 'The Lord of the Rings', author: 'John Ronald Reuel Tolkien', publish_date: new Date('1954-07-29'), genre: 'Fantasy'},
+                {id: 3, title: 'Sapiens: A Brief History of Humankind', author: 'Yuval Noah Harari', publish_date: new Date('2011-01-01'), genre: 'Non-Fiction'},
+                {id: 4, title: 'Dune', author: 'Frank Herbert', publish_date: new Date('2011-08-01'), genre: 'Science Fiction'},
+                {id: 5, title: 'It', author: 'Stephen King', publish_date: new Date('1986-09-15'), genre: 'Horror'},
+                {id: 6, title: 'Twilight', author: 'Stephenie Meyer', publish_date: new Date('2005-09-27'), genre: 'Romance'}
             ]
         },
         {
@@ -273,7 +273,7 @@ export const Statements = {
                     managed_by: { type: oracledb.NUMBER },
                     works_at: { type: oracledb.NUMBER },
                     hourly_rate: { type: oracledb.NUMBER },
-                    bi_weekly_rate: { type: oracledb.NUMBER }
+                    bi_weekly_hours: { type: oracledb.NUMBER }
                 }
             },
             binds: [
@@ -282,7 +282,7 @@ export const Statements = {
             ]
         },
         {
-            sql: "INSERT INTO volunteer_time_staff VALUES (:id, :first_name, :last_name, :email, :staff_role, :phone_number, :managed_by, :works_at, :total_hours)",
+            sql: "INSERT INTO volunteer_staff VALUES (:id, :first_name, :last_name, :email, :staff_role, :phone_number, :managed_by, :works_at, :total_hours)",
             options: {
                 autoCommit: true,
                 bindDefs: {
@@ -314,11 +314,11 @@ export const Statements = {
                 }
             },
             binds: [
-                {copy_id: 0, book_id: 0, member_id: 0, due_date: '2025-11-10'},
-                {copy_id: 4, book_id: 0, member_id: 0, due_date: '2025-12-05'},
-                {copy_id: 0, book_id: 1, member_id: 1, due_date: '2025-11-15'},
-                {copy_id: 2, book_id: 0, member_id: 1, due_date: '2025-10-01'},
-                {copy_id: 6, book_id: 0, member_id: 2, due_date: '2024-10-10'}
+                {copy_id: 0, book_id: 0, member_id: 0, due_date: new Date('2025-11-10')},
+                {copy_id: 4, book_id: 0, member_id: 0, due_date: new Date('2025-12-05')},
+                {copy_id: 0, book_id: 1, member_id: 1, due_date: new Date('2025-11-15')},
+                {copy_id: 2, book_id: 0, member_id: 1, due_date: new Date('2025-10-01')},
+                {copy_id: 6, book_id: 0, member_id: 2, due_date: new Date('2024-10-10')}
             ]
         },
         {
