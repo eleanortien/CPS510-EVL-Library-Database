@@ -12,11 +12,11 @@ catch (err) {
  * Creates an Oracle connection pool.
  * @returns {Promise<boolean>}
  */
-export async function create_oracle_pool() {
+export async function create_oracle_pool(username, password) {
     try {
         const pool = await oracledb.createPool({
-            user: process.env.USER,
-            password: process.env.PASSWORD, // mypw contains the hr schema password
+            user: username,
+            password: password, // mypw contains the hr schema password
             connectString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))",
             poolIncrement: 1,
             poolMin: 0,
@@ -29,6 +29,19 @@ export async function create_oracle_pool() {
         console.error("Failed to create Oracle Pool:", err);
         return false;
     }
+}
+/**
+ * Closes an Oracle connection pool.
+ * @returns {Promise<void>}
+ */
+export async function close_oracle_pool() {
+    await oracledb.getPool().close(0);
+}
+/**
+ * Creates tables.
+ * @returns {Promise<void>}
+ */
+export async function create_tables() {
 }
 /**
  * Creates an Oracle test session.
@@ -89,6 +102,6 @@ async function test_session() {
         }
     }
 }
-//await create_oracle_pool();
-//test_session();
+await create_oracle_pool(process.env.USER, process.env.PASSWORD);
+test_session();
 //# sourceMappingURL=db.js.map

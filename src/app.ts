@@ -3,6 +3,7 @@ import cors from "cors";
 import { create_oracle_pool } from './db.js';
 
 const app = express();
+app.use(express.json());
 app.use(cors({
     credentials:true,
     origin:["http://localhost:4200"]
@@ -13,9 +14,22 @@ app.get("/", (req, res) =>
     res.send("hello");
 })
 
-app.get("/login", async(req, res) => 
+app.post("/login", async(req, res) => 
 {
-    await create_oracle_pool();
+    const body = req.body;
+    const {username, password} = req.body;
+
+    let ret = await create_oracle_pool(username, password);
+    if (!ret)
+    {
+        res.send("Login unsuccessful")
+    }
+    else
+    {
+        res.send("Login successful")
+
+    }
+    
 })
 
 const port = 8080;
