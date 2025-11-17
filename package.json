@@ -20,6 +20,7 @@
     "start": "npm run build && node ./build/app.js"
   },
   "dependencies": {
+    "@angular/cli": "^19.2.19",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",

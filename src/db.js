@@ -1,5 +1,5 @@
-require('dotenv').config();
-const oracledb = require('oracledb');
+import 'dotenv/config';
+import oracledb from 'oracledb';
 
 // Initialize Thick mode
 try {
@@ -9,17 +9,60 @@ try {
     process.exit(1); // Exit if initialization fails
 }
 
-async function runApp()
+async function create_oracle_pool()
 {
-    config = 
-    {
-        user: process.env.USER,
-        password: process.env.PASSWORD,
-        connectionString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))",
-    }
+    const pool = await oracledb.createPool({
+        user          : process.env.USER,
+        password      : process.env.PASSWORD,  // mypw contains the hr schema password
+        connectString : "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))",
+        poolIncrement: 1,
+        poolMin: 0,
+        poolMax: 5,
+        poolAlias: "default"
+    });
+
+}
+
+async function handleRequest(request, response) {
+
+    response.writeHead(200, {"Content-Type": "text/html"});
+    response.write("<!DOCTYPE html><html><head><title>My App</title></head><body>");
+
     let connection;
     try {
-        connection = await oracledb.getConnection(config);
+
+        connection = await oracledb.getConnection();  // get a connection from the default pool
+        const result = await connection.execute(`SELECT * FROM locations`);
+
+        displayResults(response, result);  // do something with the results
+
+    } catch (err) {
+        response.write("<p>Error: " + text + "</p>");
+    } finally {
+        if (connection) {
+            try {
+                await connection.close();  // always release the connection back to the pool
+            } catch (err) {
+                console.error(err);
+            }
+        }
+    }
+
+    response.write("</body></html>");
+    response.end();
+
+}
+
+async function test_session()
+{
+    // config = {
+    //     user: process.env.USER,
+    //     password: process.env.PASSWORD,
+    //     connectionString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))",
+    // };
+    let connection;
+    try {
+        connection = await oracledb.getConnection();
         console.log("Successfully connected to Oracle Database");
 
         // Create a table
@@ -74,4 +117,5 @@ async function runApp()
         }
     }
 }
-runApp();
+await create_oracle_pool();
+test_session();
