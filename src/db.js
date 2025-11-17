@@ -53,6 +53,8 @@ async function handleRequest(request, response) {
 
 }
 
+
+//Function to test a session
 async function test_session()
 {
     // config = {
@@ -117,5 +119,5 @@ async function test_session()
         }
     }
 }
-await create_oracle_pool();
-test_session();
+//await create_oracle_pool();
+//test_session();
