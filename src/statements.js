@@ -2,9 +2,9 @@
 // ex: for statement in array -> await connection.execute(statement)
 // statement.replaceAll(/\s\s+|\n/g, '') -> if format does not work
 // for populateTables -> connection.executeMany(statement.sql, statement.binds, statement.options)
-const oracledb = require("oracledb")
+import oracledb from 'oracledb';
 
-const Statements = {
+export const Statements = {
     // Create tables
     createTables: [
         `CREATE TABLE lib_member (
@@ -478,4 +478,3 @@ const Statements = {
     ]
 }
 
-module.exports = { Statements }

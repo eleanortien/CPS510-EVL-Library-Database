@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import oracledb from 'oracledb';
+import {Statements} from './statements.js';
 
 // Initialize Thick mode
 try {
@@ -48,12 +49,81 @@ export async function close_oracle_pool()
   await oracledb.getPool().close(0);
 }
 
+
+/**
+ * Drops tables.
+ * @returns {Promise<void>}
+ */
+export async function drops_tables()
+{
+  let connection;
+    try {
+      connection = await oracledb.getConnection();
+      console.log("Successfully connected to Oracle Database");
+    } catch (err) {
+      console.error(err);
+
+    }
+    
+
+    for (const sqlCommand of Statements.dropTables)
+    {
+      try {
+        console.log(sqlCommand);
+        await connection.execute(sqlCommand, [], {autoCommit: true});
+
+      } catch (err) {
+        console.log(err);
+        continue;
+      }
+
+    }
+
+    if (connection)
+    {
+        try {
+            await connection.close();
+        } catch (err) {
+            console.error(err);
+        }
+    }
+    
+ 
+}
+
+
 /**
  * Creates tables.
  * @returns {Promise<void>}
  */
 export async function create_tables()
 {
+  let connection;
+    try {
+        connection = await oracledb.getConnection();
+        console.log("Successfully connected to Oracle Database");
+
+        for (let i = 0; i < Statements.createTables.length; i++)
+        {
+          await connection.execute(Statements.createTables[i], [],
+        { autoCommit: true });
+        }
+
+
+
+    } catch (err) {
+      console.error(err);
+
+    } finally {
+        if (connection)
+        {
+            try {
+                await connection.close();
+            } catch (err) {
+                console.error(err);
+            }
+        }
+    }
  
 }
 
@@ -98,6 +168,7 @@ async function test_session()
         
         let result = await connection.executeMany(sql, rows);
         console.log(result.rowsAffected, "Rows Inserted");
+        console.log(result);
         connection.commit();
         
         // Now query the rows back
@@ -125,4 +196,5 @@ async function test_session()
     }
 }
 await create_oracle_pool(process.env.USER, process.env.PASSWORD);
-test_session();
+await drops_tables();
+//create_tables();
