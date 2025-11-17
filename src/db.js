@@ -63,11 +63,10 @@ export async function drops_tables()
     for (const sqlCommand of Statements.dropTables)
     {
       try {
-        console.log(sqlCommand);
         await connection.execute(sqlCommand, [], {autoCommit: true});
 
       } catch (err) {
-        console.log(err);
+        console.error(sqlCommand + ": " + err);
         continue;
       }
 
@@ -103,12 +102,56 @@ export async function create_tables()
 
     } 
     
-      for (let i = 0; i < Statements.createTables.length; i++)
+      for (const sqlCommand of Statements.createTables)
       {
         try{
-          await connection.execute(Statements.createTables[i], [], { autoCommit: true });
+          await connection.execute(sqlCommand, [], { autoCommit: true });
+
         } catch (err) {
-          console.log(err);
+          console.error(sqlCommand + ": " + err);
+          continue;
+        }
+          
+      }
+
+
+      if (connection)
+      {
+          try {
+              await connection.close();
+          } catch (err) {
+              console.error(err);
+          }
+      }
+    
+ 
+}
+
+/**
+ * Populates tables.
+ * @returns {Promise<void>}
+ */
+export async function populate_tables()
+{
+  let connection;
+    try {
+        connection = await oracledb.getConnection();
+        console.log("Successfully connected to Oracle Database");
+
+    } catch (err) {
+      console.error(err);
+      return;
+
+    } 
+    
+      for (const sqlCommand of Statements.populateTables)
+      {
+        try{
+          await connection.executeMany(sqlCommand.sql, sqlCommand.binds, sqlCommand.options);
+
+        } catch (err) {
+          console.error(JSON.stringify(sqlCommand) + ": ");
+          console.error(err);
           continue;
         }
           
@@ -197,4 +240,5 @@ async function test_session()
 }
 await create_oracle_pool(process.env.USER, process.env.PASSWORD);
 await drops_tables();
-//create_tables();
+await create_tables();
+await populate_tables();
