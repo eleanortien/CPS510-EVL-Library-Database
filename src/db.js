@@ -2,13 +2,6 @@ import 'dotenv/config';
 import oracledb from 'oracledb';
 import {Statements} from './statements.js';
 
-// Initialize Thick mode
-try {
-    oracledb.initOracleClient();
-} catch (err) {
-    console.error('Error initializing Oracle Client:', err);
-    process.exit(1); // Exit if initialization fails
-}
 
 /**
  * Creates an Oracle connection pool.
@@ -22,7 +15,7 @@ export async function create_oracle_pool(username, password)
         const pool = await oracledb.createPool({
             user          : username,
             password      : password,  // mypw contains the hr schema password
-            connectString : "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))",
+            connectString : "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle12c.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl12c)))",
             poolIncrement: 1,
             poolMin: 0,
             poolMax: 5,
@@ -62,6 +55,7 @@ export async function drops_tables()
       console.log("Successfully connected to Oracle Database");
     } catch (err) {
       console.error(err);
+      return;
 
     }
     
@@ -103,27 +97,33 @@ export async function create_tables()
         connection = await oracledb.getConnection();
         console.log("Successfully connected to Oracle Database");
 
-        for (let i = 0; i < Statements.createTables.length; i++)
-        {
-          await connection.execute(Statements.createTables[i], [],
-        { autoCommit: true });
-        }
-
-
-
     } catch (err) {
       console.error(err);
+      return;
 
-    } finally {
-        if (connection)
-        {
-            try {
-                await connection.close();
-            } catch (err) {
-                console.error(err);
-            }
+    } 
+    
+      for (let i = 0; i < Statements.createTables.length; i++)
+      {
+        try{
+          await connection.execute(Statements.createTables[i], [], { autoCommit: true });
+        } catch (err) {
+          console.log(err);
+          continue;
         }
-    }
+          
+      }
+
+
+      if (connection)
+      {
+          try {
+              await connection.close();
+          } catch (err) {
+              console.error(err);
+          }
+      }
+    
  
 }
 
