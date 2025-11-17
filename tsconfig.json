@@ -5,6 +5,11 @@
     "rootDir": "src",
     "outDir": "build",
 
+    //Enable js copying
+    "allowJs": true,              
+    "checkJs": false,                 
+    "emitDeclarationOnly": false,
+
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "esnext",
@@ -45,5 +50,8 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
     "useDefineForClassFields": true,
-  }
+  },
+  "include": ["src/**/*"],        
+  "exclude": ["node_modules", "build"]
+
 }
