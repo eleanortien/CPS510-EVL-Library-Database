@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { create_oracle_pool, close_oracle_pool, drop_tables, create_tables, populate_tables, simple_query_tables, advanced_query_tables, view_tables } from './db.js';
+import { create_oracle_pool, close_oracle_pool, drop_tables, create_tables, populate_tables, simple_query_tables, advanced_query_tables, view_tables, sql_injector } from './db.js';
 
 const app = express();
 app.use(express.json());
@@ -124,6 +124,25 @@ app.get("/view-tables/:querykey", async(req, res) =>
 })
 
 
+//Runs user inputted sql - sends successful or unsuccessful
+app.post("/run-command", async(req, res) =>
+{
+    try{
+        const body = req.body;
+        const {sqlCommand} = req.body;
+
+        await sql_injector(sqlCommand);
+        res.status(200).send("Successfully ran: " + sqlCommand);
+
+    } catch(err){
+        res.status(400).send("Unable to run " + err);
+    }
+
+})
+
+
+
+//Listen to port 8080
 const port = 8080;
 app.listen(port, () => {
     console.log("website on http://localhost:" + port);

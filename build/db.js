@@ -240,12 +240,45 @@ export async function view_tables(querykey) {
         }
     }
 }
+/**
+ *  Runs user inputted sql command
+ * @returns {Promise<void>}
+ */
+export async function sql_injector(sqlCommand) {
+    let connection;
+    try {
+        connection = await oracledb.getConnection();
+        console.log("Successfully connected to Oracle Database");
+    }
+    catch (err) {
+        console.error(err);
+        throw err;
+    }
+    try {
+        await connection.execute(sqlCommand);
+    }
+    catch (err) {
+        console.error(sqlCommand + ": " + err);
+        throw err;
+    }
+    console.log("Successfully ran sqlCommand: " + sqlCommand);
+    connection.commit();
+    if (connection) {
+        try {
+            await connection.close();
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
+}
 //Testing functions
-// await create_oracle_pool(process.env.USER, process.env.PASSWORD);
-// await drop_tables();
-// await create_tables();
-// await populate_tables();
-// await simple_query_tables(1);
-// await advanced_query_tables(1);
-// await view_tables("book");
+//await create_oracle_pool(process.env.USER, process.env.PASSWORD);
+//wait drop_tables();
+//await create_tables();
+//await populate_tables();
+//await simple_query_tables(1);
+//await advanced_query_tables(1);
+//await view_tables("book");
+//await sql_injector("DROP TABLE borrows");
 //# sourceMappingURL=db.js.map
