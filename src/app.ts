@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { create_oracle_pool } from './db.js';
+import { create_oracle_pool, drop_tables, create_tables, populate_tables, simple_query_tables } from './db.js';
 
 const app = express();
 app.use(express.json());
