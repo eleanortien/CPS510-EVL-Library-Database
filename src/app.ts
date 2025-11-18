@@ -30,6 +30,7 @@ app.post("/login", async(req, res) =>
     
 })
 
+//Close function: closes Oracle session - sends successful or unsuccessful response
 app.post("/close-session", async(req, res) =>
 {
     try{
