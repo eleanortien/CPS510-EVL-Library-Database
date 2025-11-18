@@ -38,4 +38,9 @@ export function advanced_query_tables(querynum: any): Promise<Result<any>>;
  * @returns {Promise<Result<any>>}
  */
 export function view_tables(querykey: any): Promise<Result<any>>;
+/**
+ *  Runs user inputted sql command
+ * @returns {Promise<void>}
+ */
+export function sql_injector(sqlCommand: any): Promise<void>;
 //# sourceMappingURL=db.d.ts.map

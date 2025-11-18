@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { create_oracle_pool, close_oracle_pool, drop_tables, create_tables, populate_tables, simple_query_tables, advanced_query_tables, view_tables } from './db.js';
+import { create_oracle_pool, close_oracle_pool, drop_tables, create_tables, populate_tables, simple_query_tables, advanced_query_tables, view_tables, sql_injector } from './db.js';
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -22,6 +22,7 @@ app.post("/login", async (req, res) => {
         res.status(401).send("Login unsuccessful");
     }
 });
+//Close function: closes Oracle session - sends successful or unsuccessful response
 app.post("/close-session", async (req, res) => {
     try {
         await close_oracle_pool();
@@ -95,6 +96,19 @@ app.get("/view-tables/:querykey", async (req, res) => {
         res.status(400).send("Unable to create connection to Oracle DB");
     }
 });
+//Runs user inputted sql - sends successful or unsuccessful
+app.post("/run-command", async (req, res) => {
+    try {
+        const body = req.body;
+        const { sqlCommand } = req.body;
+        await sql_injector(sqlCommand);
+        res.status(200).send("Successfully ran: " + sqlCommand);
+    }
+    catch (err) {
+        res.status(400).send("Unable to run " + err);
+    }
+});
+//Listen to port 8080
 const port = 8080;
 app.listen(port, () => {
     console.log("website on http://localhost:" + port);
