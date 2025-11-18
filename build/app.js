@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { create_oracle_pool, drop_tables, create_tables, populate_tables, simple_query_tables, advanced_query_tables, view_tables } from './db.js';
+import { create_oracle_pool, close_oracle_pool, drop_tables, create_tables, populate_tables, simple_query_tables, advanced_query_tables, view_tables } from './db.js';
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -20,6 +20,16 @@ app.post("/login", async (req, res) => {
     }
     catch (err) {
         res.status(401).send("Login unsuccessful");
+    }
+});
+app.post("/close-session", async (req, res) => {
+    try {
+        await close_oracle_pool();
+        res.status(200).send("Successfully closed session");
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).send("Error while closing session");
     }
 });
 //Drop function - sends successful or unsuccessful response
@@ -87,6 +97,6 @@ app.get("/view-tables/:querykey", async (req, res) => {
 });
 const port = 8080;
 app.listen(port, () => {
-    console.log("website on " + port);
+    console.log("website on http://localhost:" + port);
 });
 //# sourceMappingURL=app.js.map

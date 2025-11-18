@@ -17,7 +17,7 @@
   "scripts": {
     "test": "test",
     "build": "npx tsc",
-    "start": "npm run build && node ./build/app.js"
+    "start": "node ./build/app.js"
   },
   "dependencies": {
     "@angular/cli": "^19.2.19",
