@@ -205,12 +205,12 @@ export async function simple_query_tables(querynum)
         let sqlCommand = Statements.simpleQueries[querynum];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT});
         let res = JSON.stringify(result.rows);
-        console.log("Successfully ran query on tables.");
+        console.log("Successfully ran simple query on tables.");
 
         return res;
 
       } catch (err) {
-        console.error(JSON.sqlCommand + ": " + err);
+        console.error(sqlCommand + ": " + err);
       }
     
 
@@ -254,12 +254,61 @@ export async function advanced_query_tables(querynum)
         let sqlCommand = Statements.advancedQueries[querynum];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT});
         let res = JSON.stringify(result.rows);
-        console.log("Successfully ran query on tables.");
+        console.log("Successfully ran advanced query on tables.");
 
         return res;
 
       } catch (err) {
-        console.error(JSON.sqlCommand + ": " + err);
+        console.error(sqlCommand + ": " + err);
+      }
+    
+
+
+      if (connection)
+      {
+          try {
+              await connection.close();
+          } catch (err) {
+              console.error(err);
+          }
+      }
+    
+ 
+}
+
+/**
+ *  Runs and returns a table.
+ * @returns {Promise<Result<any>>}
+ */
+export async function view_tables(querykey)
+{
+  let connection;
+    try {
+        connection = await oracledb.getConnection();
+        console.log("Successfully connected to Oracle Database");
+
+    } catch (err) {
+      console.error(err);
+      return;
+
+    } 
+    
+   
+      try{
+        if (! (querykey in Statements.viewTables)){
+          throw new Error("Invalid key value: " + querykey + ". Double check this is a valid table name");
+
+        }
+        
+        let sqlCommand = Statements.viewTables[querykey];
+        let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT});
+        let res = JSON.stringify(result.rows);
+        console.log("Successfully retrieved table.");
+
+        return res;
+
+      } catch (err) {
+        console.error(sqlCommand + ": " + err);
       }
     
 
@@ -277,6 +326,7 @@ export async function advanced_query_tables(querynum)
 }
 
 
+
         
 
 await create_oracle_pool(process.env.USER, process.env.PASSWORD);
@@ -285,3 +335,4 @@ await create_tables();
 await populate_tables();
 await simple_query_tables(1);
 await advanced_query_tables(1);
+await view_tables("book");

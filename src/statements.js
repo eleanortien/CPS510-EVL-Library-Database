@@ -475,6 +475,20 @@ export const Statements = {
         FROM book_copy b
         JOIN book ON b.book_id = book.book_id
         WHERE b.located_at != 2`,
+    },
+    //View Tables
+    viewTables: {
+        "borrows": `SELECT * FROM borrows`,
+        "part_time_staff": `SELECT * FROM part_time_staff`,
+        "volunteer_staff": `SELECT * FROM volunteer_staff`,
+        "full_time_staff": `SELECT * FROM full_time_staff`,
+        "book_copy": `SELECT * FROM book_copy`,
+        "branch": `SELECT * FROM branch`,
+        "supplier": `SELECT * FROM supplier`,
+        "queue_hold": `SELECT * FROM queue_hold`,
+        "lib_member": `SELECT * FROM lib_member`,
+        "book": `SELECT * FROM book`
     }
+
 }
 
