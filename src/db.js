@@ -5,7 +5,7 @@ import {Statements} from './statements.js';
 
 /**
  * Creates an Oracle connection pool.
- * @returns {Promise<boolean>}
+ * @returns {Promise<void>}
  */
 
 export async function create_oracle_pool(username, password)
@@ -21,11 +21,10 @@ export async function create_oracle_pool(username, password)
             poolMax: 5,
             poolAlias: "default"
         });
-        return true;
     }
     catch (err) {
-        console.error("Failed to create Oracle Pool:", err);
-        return false; 
+      console.error("Failed to create Oracle Pool:", err);
+      throw err;
 
     }
 
@@ -47,7 +46,7 @@ export async function close_oracle_pool()
  * Drops tables.
  * @returns {Promise<void>}
  */
-export async function drops_tables()
+export async function drop_tables()
 {
   let connection;
     try {
@@ -55,7 +54,7 @@ export async function drops_tables()
       console.log("Successfully connected to Oracle Database");
     } catch (err) {
       console.error(err);
-      return;
+      throw err;
 
     }
     
@@ -101,7 +100,7 @@ export async function create_tables()
 
     } catch (err) {
       console.error(err);
-      return;
+      throw err;
 
     } 
     
@@ -146,7 +145,7 @@ export async function populate_tables()
 
     } catch (err) {
       console.error(err);
-      return;
+      throw err;
 
     } 
     
@@ -191,7 +190,7 @@ export async function simple_query_tables(querynum)
 
     } catch (err) {
       console.error(err);
-      return;
+      throw err;
 
     } 
     
@@ -240,7 +239,7 @@ export async function advanced_query_tables(querynum)
 
     } catch (err) {
       console.error(err);
-      return;
+      throw err;
 
     } 
     
@@ -289,7 +288,7 @@ export async function view_tables(querykey)
 
     } catch (err) {
       console.error(err);
-      return;
+      throw err;
 
     } 
     
@@ -328,11 +327,11 @@ export async function view_tables(querykey)
 
 
         
-
-await create_oracle_pool(process.env.USER, process.env.PASSWORD);
-await drops_tables();
-await create_tables();
-await populate_tables();
-await simple_query_tables(1);
-await advanced_query_tables(1);
-await view_tables("book");
+//Testing functions
+// await create_oracle_pool(process.env.USER, process.env.PASSWORD);
+// await drop_tables();
+// await create_tables();
+// await populate_tables();
+// await simple_query_tables(1);
+// await advanced_query_tables(1);
+// await view_tables("book");
