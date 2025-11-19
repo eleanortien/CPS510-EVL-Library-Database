@@ -1,0 +1,26 @@
+.welcome-text {
+  font-size: 3rem;
+  color: #BD4545;
+}
+
+.welcome-div {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 170px;
+}
+
+
+.button-row {
+  button {
+    margin: 10px;
+    width: 200px;
+    height: 70px;
+    font-size: 1.2rem;
+  }
+}
+
+.mat-mdc-button-base.my-custom-button {
+  background-color: #BD4545 !important;
+}
