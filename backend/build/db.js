@@ -255,7 +255,12 @@ export async function sql_injector(sqlCommand) {
         throw err;
     }
     try {
-        await connection.execute(sqlCommand);
+        if (sqlCommand.toLowerCase().includes("update") || sqlCommand.toLowerCase().includes("insert") || sqlCommand.toLowerCase().includes("delete")) {
+            await connection.execute(sqlCommand);
+        }
+        else {
+            throw new Error("Invalid sqlCommand" + sqlCommand);
+        }
     }
     catch (err) {
         console.error(sqlCommand + ": " + err);
@@ -273,12 +278,13 @@ export async function sql_injector(sqlCommand) {
     }
 }
 //Testing functions
-//await create_oracle_pool(process.env.USER, process.env.PASSWORD);
-//wait drop_tables();
-//await create_tables();
-//await populate_tables();
-//await simple_query_tables(1);
-//await advanced_query_tables(1);
-//await view_tables("book");
-//await sql_injector("DROP TABLE borrows");
+// await create_oracle_pool(process.env.USER, process.env.PASSWORD);
+// await drop_tables();
+// await create_tables();
+// await populate_tables();
+// await simple_query_tables(1);
+// await advanced_query_tables(1);
+// await view_tables("lib_member");
+// await sql_injector("DROP TABLE borrows");
+// await sql_injector("INSERT INTO lib_member VALUES (0, 'etien', 'x')");
 //# sourceMappingURL=db.js.map
