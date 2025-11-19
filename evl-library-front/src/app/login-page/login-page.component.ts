@@ -25,11 +25,12 @@ export class LoginPageComponent {
         var password = this.password.getRawValue();
         if (username && password) {
             var userObj: User = {username: username, password: password}
-            console.log(userObj);
+            this.userService.login(userObj).subscribe(_ => {
+                this.router.navigate(['/']);
+            });
+            // temp get rid of when connecting
             localStorage.setItem('User', JSON.stringify(userObj));
-            //localStorage.removeItem('User');
-            //this.userService.login(userObj);
-            this.router.navigate(['/']);
+                this.router.navigate(['/']);
         }
     }
 }

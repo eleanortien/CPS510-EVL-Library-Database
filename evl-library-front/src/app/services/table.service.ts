@@ -66,4 +66,8 @@ export class TableService {
     getQueryTable(which: number): Observable<any[]> {
         return this.http.get<any[]>(QUERY_URL + which);
     }
+
+    updateTable(code: string): Observable<any[]> {
+        return this.http.post<any[]>(TABLE_URL, code);
+    }
 }
