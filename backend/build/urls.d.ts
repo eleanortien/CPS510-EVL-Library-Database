@@ -1,0 +1,11 @@
+export declare const BASE_URL = "http://localhost:8080";
+export declare const LOGIN_URL = "http://localhost:8080/login";
+export declare const CLOSE_SESSION_URL = "http://localhost:8080/close-session";
+export declare const DROP_TABLES_URL = "http://localhost:8080/drop";
+export declare const CREATE_TABLES_URL = "http://localhost:8080/create";
+export declare const POPULATE_TABLES_URL = "http://localhost:8080/populate";
+export declare const SIMPLE_QUERY_URL: (querynum: number) => string;
+export declare const ADVANCED_QUERY_URL: (querynum: number) => string;
+export declare const VIEW_TABLES_URL: (querykey: string) => string;
+export declare const RUN_USER_SQL_URL = "http://localhost:8080/run-command";
+//# sourceMappingURL=urls.d.ts.map

@@ -2,8 +2,8 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir": "src",
-    "outDir": "build",
+    "rootDir": "backend/src",
+    "outDir": "backend/build",
 
     //Enable js copying
     "allowJs": true,              
@@ -51,7 +51,7 @@
     "skipLibCheck": true,
     "useDefineForClassFields": true,
   },
-  "include": ["src/**/*"],        
-  "exclude": ["node_modules", "build"]
+  "include": ["backend/src/**/*"],        
+  "exclude": ["node_modules", "backend/build"]
 
 }
