@@ -14,51 +14,56 @@ import { Supplier } from '../shared/models/Supplier';
 import { VolunteerStaff } from '../shared/models/VolunteerStaf';
 
 export const TABLE_URL = BASE_URL + '/table/';
+export const QUERY_URL = BASE_URL + '/query/';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class TableService {
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  getBookTable(): Observable<Book[]> {
-    return this.http.get<Book[]>(TABLE_URL + 1);
-  }
-  
-  getBookCopyTable(): Observable<BookCopy[]> {
-    return this.http.get<BookCopy[]>(TABLE_URL + 1);
-  }
-  
-  getBorrowsTable(): Observable<Borrows[]> {
-    return this.http.get<Borrows[]>(TABLE_URL + 1);
-  }
-  
-  getBranchTable(): Observable<Branch[]> {
-    return this.http.get<Branch[]>(TABLE_URL + 1);
-  }
-  
-  getFullTimeTable(): Observable<FullTimeStaff[]> {
-    return this.http.get<FullTimeStaff[]>(TABLE_URL + 1);
-  }
-  
-  getPartTimeTable(): Observable<PartTimeStaff[]> {
-    return this.http.get<PartTimeStaff[]>(TABLE_URL + 1);
-  }
-  
-  getLibMemberTable(): Observable<LibMember[]> {
-    return this.http.get<LibMember[]>(TABLE_URL + 1);
-  }
-  
-  getQueueHoldTable(): Observable<QueueHold[]> {
-    return this.http.get<QueueHold[]>(TABLE_URL + 1);
-  }
-  
-  getSupplierTable(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>(TABLE_URL + 1);
-  }
-  
-  getVolunteerTable(): Observable<VolunteerStaff[]> {
-    return this.http.get<VolunteerStaff[]>(TABLE_URL + 1);
-  }
+    getBookTable(): Observable<Book[]> {
+        return this.http.get<Book[]>(TABLE_URL + 1);
+    }
+    
+    getBookCopyTable(): Observable<BookCopy[]> {
+        return this.http.get<BookCopy[]>(TABLE_URL + 1);
+    }
+    
+    getBorrowsTable(): Observable<Borrows[]> {
+        return this.http.get<Borrows[]>(TABLE_URL + 1);
+    }
+    
+    getBranchTable(): Observable<Branch[]> {
+        return this.http.get<Branch[]>(TABLE_URL + 1);
+    }
+    
+    getFullTimeTable(): Observable<FullTimeStaff[]> {
+        return this.http.get<FullTimeStaff[]>(TABLE_URL + 1);
+    }
+    
+    getPartTimeTable(): Observable<PartTimeStaff[]> {
+        return this.http.get<PartTimeStaff[]>(TABLE_URL + 1);
+    }
+    
+    getLibMemberTable(): Observable<LibMember[]> {
+        return this.http.get<LibMember[]>(TABLE_URL + 1);
+    }
+    
+    getQueueHoldTable(): Observable<QueueHold[]> {
+        return this.http.get<QueueHold[]>(TABLE_URL + 1);
+    }
+    
+    getSupplierTable(): Observable<Supplier[]> {
+        return this.http.get<Supplier[]>(TABLE_URL + 1);
+    }
+    
+    getVolunteerTable(): Observable<VolunteerStaff[]> {
+        return this.http.get<VolunteerStaff[]>(TABLE_URL + 1);
+    }
+    
+    getQueryTable(which: number): Observable<any[]> {
+        return this.http.get<any[]>(QUERY_URL + which);
+    }
 }

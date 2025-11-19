@@ -1,0 +1,476 @@
+
+<button matButton="filled" class="back-button" (click)="goBack()">Back</button>
+
+<div class="tables">
+    <!-- Query 1 -->
+    @if (queryId == 1) {
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+
+            <ng-container matColumnDef="book_ID">
+            <th mat-header-cell *matHeaderCellDef> Book ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.book_ID}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.title}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef> Author </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.author}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="genre">
+            <th mat-header-cell *matHeaderCellDef> Genre </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.genre}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="Number_Available">
+            <th mat-header-cell *matHeaderCellDef> No. of Available Copies </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.Number_Available}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns[0]"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns[0];"></tr>
+        </table>
+    }
+
+    <!-- Query 2 -->
+    @if (queryId == 2) {
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+
+        <ng-container matColumnDef="member_ID">
+            <th mat-header-cell *matHeaderCellDef> Member ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.member_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.username}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="copy_ID">
+            <th mat-header-cell *matHeaderCellDef> Copy ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.copy_ID}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Days_Overdue">
+            <th mat-header-cell *matHeaderCellDef> Days Overdue </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.Days_Overdue}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[1]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[1];"></tr>
+        </table>
+    }
+
+    <!-- Query 3 -->
+    @if (queryId == 3) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="staff_ID">
+            <th mat-header-cell *matHeaderCellDef> Staff ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.staff_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="first_name">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.first_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="last_name">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.last_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Num_Part_Time_Managees">
+            <th mat-header-cell *matHeaderCellDef> No. Part Time Managees </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.Num_Part_Time_Managees}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Num_Volunteer_Managees">
+            <th mat-header-cell *matHeaderCellDef> No. Volunteer Managees </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.Num_Volunteer_Managees}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Num_Full_Time_Managees">
+            <th mat-header-cell *matHeaderCellDef> No. Full Time Managees </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.Num_Full_Time_Managees}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Total_Managees">
+            <th mat-header-cell *matHeaderCellDef> Total Managees </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.Total_Managees}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[2]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[2];"></tr>
+        </table>
+    }
+
+    <!-- Query 4 -->
+    @if (queryId == 4) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="staff_ID">
+            <th mat-header-cell *matHeaderCellDef> Staff ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.staff_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="first_name">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.first_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="last_name">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.last_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="works_at">
+            <th mat-header-cell *matHeaderCellDef> Works At </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.works_at}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="branch_name">
+            <th mat-header-cell *matHeaderCellDef> Branch Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.branch_name}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[3]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[3];"></tr>
+        </table>
+    }
+
+    <!-- Query 5 -->
+    @if (queryId == 5) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="staff_ID">
+            <th mat-header-cell *matHeaderCellDef> Staff ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.staff_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="first_name">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.first_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="last_name">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.last_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="total_hours">
+            <th mat-header-cell *matHeaderCellDef> Total Hours </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.total_hours}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[4]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[4];"></tr>
+        </table>
+    }
+
+    <!-- Query 6 -->
+    @if (queryId == 6) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="address_city">
+            <th mat-header-cell *matHeaderCellDef> City </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.address_city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Num_Of_Branches">
+            <th mat-header-cell *matHeaderCellDef> No. Branches </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.Num_Of_Branches}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[5]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[5];"></tr>
+        </table>
+    }
+
+    <!-- Query 7 -->
+    @if (queryId == 7) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef> Author </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.author}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publish_date">
+            <th mat-header-cell *matHeaderCellDef> Publish Date </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.publish_date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="genre">
+            <th mat-header-cell *matHeaderCellDef> Genre </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.genre}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[6]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[6];"></tr>
+        </table>
+    }
+
+    <!-- Query 8 -->
+    @if (queryId == 8) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="member_ID">
+            <th mat-header-cell *matHeaderCellDef> Member ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.member_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.username}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NUM_BORROWED">
+            <th mat-header-cell *matHeaderCellDef> No. Borrowed Books </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.NUM_BORROWED}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[7]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[7];"></tr>
+        </table>
+    }
+
+    <!-- Query 9 -->
+    @if (queryId == 9) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="branch_ID">
+            <th mat-header-cell *matHeaderCellDef> Book ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.branch_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NUM_BOOKS">
+            <th mat-header-cell *matHeaderCellDef> No. Books </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.NUM_BOOKS}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[8]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[8];"></tr>
+        </table>
+    }
+
+    <!-- Query 10 -->
+    @if (queryId == 10) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="supplier_ID">
+            <th mat-header-cell *matHeaderCellDef> Supplier ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.supplier_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NUM_BOOKS">
+            <th mat-header-cell *matHeaderCellDef> No. Books </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.NUM_BOOKS}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="TOTAL_VOLUMES">
+            <th mat-header-cell *matHeaderCellDef> Total Volumes </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.TOTAL_VOLUMES}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[9]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[9];"></tr>
+        </table>
+    }
+
+    <!-- Query 11 -->
+    @if (queryId == 11) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="member_ID">
+            <th mat-header-cell *matHeaderCellDef> Member ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.member_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="book_ID">
+            <th mat-header-cell *matHeaderCellDef> Book ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.book_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="place_in_queue">
+            <th mat-header-cell *matHeaderCellDef> Place in Queue </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.place_in_queue}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[10]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[10];"></tr>
+        </table>
+    }
+
+    <!-- Query 12 -->
+    @if (queryId == 12) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="supplier_ID">
+            <th mat-header-cell *matHeaderCellDef> Supplier ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.supplier_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="supplier_name">
+            <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.supplier_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone_number">
+            <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.phone_number}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[11]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[11];"></tr>
+        </table>
+    }
+
+    <!-- Query 13 -->
+    @if (queryId == 13) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.username}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="place_in_queue">
+            <th mat-header-cell *matHeaderCellDef> Place in Queue </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.place_in_queue}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[12]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[12];"></tr>
+        </table>
+    }
+
+    <!-- Query 14 -->
+    @if (queryId == 14) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="branch_id">
+            <th mat-header-cell *matHeaderCellDef> Branch ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.branch_id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="branch_name">
+            <th mat-header-cell *matHeaderCellDef> Branch Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.branch_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="full_address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.full_address}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="number_of_staff">
+            <th mat-header-cell *matHeaderCellDef> No. Staff </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.number_of_staff}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[13]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[13];"></tr>
+        </table>
+    }
+
+    <!-- Query 15 -->
+    @if (queryId == 15) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="book_ID">
+            <th mat-header-cell *matHeaderCellDef> Book ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.book_ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="POPULARITY">
+            <th mat-header-cell *matHeaderCellDef> Popularity </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.POPULARITY}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[14]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[14];"></tr>
+        </table>
+    }
+
+    <!-- Query 16 -->
+    @if (queryId == 16) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.username}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[15]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[15];"></tr>
+        </table>
+    }
+
+    <!-- Query 17 -->
+    @if (queryId == 17) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="supplier_id">
+            <th mat-header-cell *matHeaderCellDef> Supplier ID </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.supplier_id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="supplier_name">
+            <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.supplier_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="donation_percentage">
+            <th mat-header-cell *matHeaderCellDef> Donation Percentage </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.donation_percentage}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[16]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[16];"></tr>
+        </table>
+    }
+
+    <!-- Query 18 -->
+    @if (queryId == 18) {
+        <table mat-table [dataSource]="dataSource" class="elevation-z8 table">
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let cell"> {{cell.title}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns[17]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns[17];"></tr>
+        </table>
+    }
+</div>
