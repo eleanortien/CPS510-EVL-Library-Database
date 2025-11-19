@@ -1,18 +1,38 @@
 
 <button matButton="filled" class="back-button" (click)="goBack()">Back</button>
 
+<!-- Simple Queries -->
+<h2>Simple Queries</h2>
 <div class="all-cards">
     <div class="card-div">
         <mat-card class="card" appearance="outlined">
             <mat-card-header>
                 <mat-card-title class="header-title">Querie #1</mat-card-title>
-                <mat-card-subtitle class="header-sub">Dog Breed</mat-card-subtitle>
+                <mat-card-subtitle class="header-sub">Book Copies Available</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                This query will return all the books information (book_id, title, author, genre) 
+                and will count how many copies of that book are available to borrow. 
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button" (click)="runQuery(1)">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #2</mat-card-title>
+                <mat-card-subtitle class="header-sub">Member Overdue Books</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return the member information (member_id, username) and the information 
+                for the book that is overdue (title, copy_id) and will count how many days overdue that book is.
                 </p>
             </mat-card-content>
             <mat-card-footer>
@@ -25,14 +45,14 @@
     <div class="card-div">
         <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title class="header-title">Querie #1</mat-card-title>
-                <mat-card-subtitle class="header-sub">Dog Breed</mat-card-subtitle>
+                <mat-card-title class="header-title">Querie #3</mat-card-title>
+                <mat-card-subtitle class="header-sub">Manager Information</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                This query will get the employee information (staff_id, first_name, last_name) and 
+                will cound all the different number of employees that they manage (part_time, volunteer, full_time) 
+                as well as the total number of emplyees under this manager.
                 </p>
             </mat-card-content>
             <mat-card-footer>
@@ -45,14 +65,14 @@
     <div class="card-div">
         <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title class="header-title">Querie #1</mat-card-title>
-                <mat-card-subtitle class="header-sub">Dog Breed</mat-card-subtitle>
+                <mat-card-title class="header-title">Querie #4</mat-card-title>
+                <mat-card-subtitle class="header-sub">Part-Time Staff With Above-Average Pay</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                This query will return the part-time staff information (staff_id, first_name, last_name) for employees 
+                who work at Branch 2. It also includes the branch name, and it only shows staff 
+                who earn more than the average hourly rate of all staff.
                 </p>
             </mat-card-content>
             <mat-card-footer>
@@ -65,14 +85,13 @@
     <div class="card-div">
         <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title class="header-title">Querie #1</mat-card-title>
-                <mat-card-subtitle class="header-sub">Dog Breed</mat-card-subtitle>
+                <mat-card-title class="header-title">Querie #5</mat-card-title>
+                <mat-card-subtitle class="header-sub">Volunteer With the Most Hours</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                This query will return the volunteer information (staff_id, first_name, last_name) for the volunteer who has 
+                volunteered the highest total number of hours.
                 </p>
             </mat-card-content>
             <mat-card-footer>
@@ -85,14 +104,13 @@
     <div class="card-div">
         <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title class="header-title">Querie #1</mat-card-title>
-                <mat-card-subtitle class="header-sub">Dog Breed</mat-card-subtitle>
+                <mat-card-title class="header-title">Querie #6</mat-card-title>
+                <mat-card-subtitle class="header-sub">Number of Branches per City in Ontario</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                This query will return each city in Ontario that has a branch and will count how many branches are located in 
+                that city.
                 </p>
             </mat-card-content>
             <mat-card-footer>
@@ -105,14 +123,220 @@
     <div class="card-div">
         <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title class="header-title">Querie #1</mat-card-title>
-                <mat-card-subtitle class="header-sub">Dog Breed</mat-card-subtitle>
+                <mat-card-title class="header-title">Querie #7</mat-card-title>
+                <mat-card-subtitle class="header-sub">Oldest Fantasy Book</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+                This query will return the book information (title, author, publish date, genre) for the oldest published book in the Fantasy genre.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #8</mat-card-title>
+                <mat-card-subtitle class="header-sub">Members With Borrowed Books</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return the member information (member_id, username) along with the total number of books each member has borrowed.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #9</mat-card-title>
+                <mat-card-subtitle class="header-sub">Number of Unique Books per Branch</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return each branch (branch_id) and will count how many unique books (book_id) are located at that branch.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #10</mat-card-title>
+                <mat-card-subtitle class="header-sub">Books and Total Volumes per Supplier</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return supplier information (supplier_id) along with the number of distinct books each supplier has provided 
+                and the total number of physical copies supplied.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #11</mat-card-title>
+                <mat-card-subtitle class="header-sub">Next In Queue for Holds</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return queue information (member_id, book_id, place_in_queue) for all members who are currently in place 0 in queue 
+                and will be able to borrow the book next.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #12</mat-card-title>
+                <mat-card-subtitle class="header-sub">Suppliers With 10 or More Supplied Copies</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return supplier information (supplier_id, supplier_name, email, phone_number) for suppliers who have provided at least 10 
+                total book copies.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>
+
+<!-- Advance Queries -->
+<h2>Advance Queries</h2>
+<div class="all-cards">
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #1</mat-card-title>
+                <mat-card-subtitle class="header-sub">User Queue Positions</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return the username of the user 'lsu', and get all the hold information (book_title, queue_position) for all 
+                books that the user is currently waiting for.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #2</mat-card-title>
+                <mat-card-subtitle class="header-sub">Branch Overview</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return each branch's information (branch_id, branch_name, full_address) and will count how many staff members 
+                work there and how many distinct books are located at that branch.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #3</mat-card-title>
+                <mat-card-subtitle class="header-sub">Book Popularity</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return each book's information (book_id, title) and will calculate its popularity based on the number of borrows and queue holds it has.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #4</mat-card-title>
+                <mat-card-subtitle class="header-sub">Members With Borrows and Queue Holds</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return the usernames of members who have borrowed more than one book and also have at least one book in a queue hold.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #5</mat-card-title>
+                <mat-card-subtitle class="header-sub">Supplier Donation Percentage</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return supplier information (supplier_id, supplier_name) and will calculate what percentage of all book copies were provided by each supplier.
+                </p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-actions>
+                    <button matButton="filled" class="my-custom-button">Run</button>
+                </mat-card-actions>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="header-title">Querie #6</mat-card-title>
+                <mat-card-subtitle class="header-sub">Books Only at Branch 2</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                This query will return the titles of books that are located at Branch 2 and are not located at any other branch.
                 </p>
             </mat-card-content>
             <mat-card-footer>
