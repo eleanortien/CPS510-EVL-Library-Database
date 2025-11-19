@@ -5,6 +5,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { UserService } from './services/user.service';
 
 @Component({
     selector: 'app-root',
@@ -13,11 +14,18 @@ import { Router } from '@angular/router';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'evl-library-front';
+    title = 'evl-library-front';
 
-  constructor(private router: Router) {}
+    constructor(private router: Router, private userService: UserService) {
+        if (userService.getUser()) {
+            this.router.navigate(['/']);
+        }
+        else {
+            this.router.navigate(['/login']);
+        }
+    }
 
-  rederect(where: string) {
-         this.router.navigate(['/' + where]);
-  }
+    rederect(where: string) {
+        this.router.navigate(['/' + where]);
+    }
 }
