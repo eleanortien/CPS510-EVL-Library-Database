@@ -1,6 +1,6 @@
 export class Borrows {
-    book_ID!: number;
-    copy_ID!: number;
-    member_ID!: number;
-    due_date!: Date;
+    BOOK_ID!: number;
+    COPY_ID!: number;
+    MEMBER_ID!: number;
+    DUE_DATE!: string;
 }

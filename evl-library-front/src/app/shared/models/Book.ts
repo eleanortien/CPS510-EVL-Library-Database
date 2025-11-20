@@ -1,7 +1,7 @@
 export class Book {
-    book_ID!: number;
-    title!: string;
-    author!: string;
-    date!: Date;
-    genre: string = '';
+    BOOK_ID!: number;
+    TITLE!: string;
+    AUTHOR!: string;
+    PUBLISH_DATE!: string;
+    GENRE: string = '';
 }

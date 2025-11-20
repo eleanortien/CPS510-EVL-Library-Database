@@ -1,7 +1,7 @@
 export class BookCopy {
-    copy_ID!: number;
-    book_ID!: number;
-    damaged!: boolean;
-    located_at!: number;
-    provided_by!: number;
+    COPY_ID!: number;
+    BOOK_ID!: number;
+    DAMAGED!: boolean;
+    LOCATED_AT!: number;
+    PROVIDED_BY!: number;
 }

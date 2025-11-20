@@ -1,5 +1,5 @@
 export class LibMember {
-    member_ID!: number;
-    username!: string;
-    email!: string;
+    MEMBER_ID!: number;
+    USERNAME!: string;
+    EMAIL!: string;
 }

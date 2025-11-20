@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
-import { BASE_URL } from '../shared/constants/urls';
-
-export const USER_LOGIN_URL = BASE_URL + "/login";
+import { LOGIN_URL } from '../shared/constants/urls';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +21,16 @@ export class UserService {
     login(userLogin:User):Observable<User>{
         console.log(userLogin)
         // temp remove when connected
-        this.userSubject.next(userLogin);
-        return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
+        // this.userSubject.next(userLogin);
+        return this.http.post<User>(LOGIN_URL, userLogin).pipe(
             tap({
-                next: (user) =>{
-                    console.log(user)
-                    localStorage.setItem('User', JSON.stringify(user));
-                    this.userSubject.next(user);
+                next: (answer) =>{
+                    console.log(answer)
+                    localStorage.setItem('User', JSON.stringify(answer.username));
+                    this.userSubject.next(answer);
                 },
                 error: (errorResponse) => {
+                    console.log("error :(" , errorResponse);
                 }
             })
         );

@@ -1,12 +1,12 @@
 export class PartTimeStaff {
-    staff_ID!: number;
-    first_name!: string;
-    last_name!: string;
-    email!: string;
-    staff_role!: string;
-    phone_number!: string;
-    managed_by: number = -1;
-    works_at: number = -1;
-    hourly_rate!: number;
-    bi_weekly_hours!: number;
+    STAFF_ID!: number;
+    FIRST_NAME!: string;
+    LAST_NAME!: string;
+    EMAIL!: string;
+    STAFF_ROLE!: string;
+    PHONE_NUMBER!: string;
+    MANAGED_BY: number = -1;
+    WORKS_AT: number = -1;
+    HOURLY_RATE!: number;
+    BI_WEEKLY_HOURS!: number;
 }

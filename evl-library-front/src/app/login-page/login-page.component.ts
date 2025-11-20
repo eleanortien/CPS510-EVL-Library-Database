@@ -3,7 +3,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { User } from '../shared/models/User';
@@ -29,8 +29,8 @@ export class LoginPageComponent {
                 this.router.navigate(['/']);
             });
             // temp get rid of when connecting
-            localStorage.setItem('User', JSON.stringify(userObj));
-                this.router.navigate(['/']);
+            // localStorage.setItem('User', JSON.stringify(userObj));
+            //     this.router.navigate(['/']);
         }
     }
 }

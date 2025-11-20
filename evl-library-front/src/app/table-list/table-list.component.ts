@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class TableListComponent {
 
-    bookData: Book[] = [{book_ID: 1, title: 'john', author: 'me', date: new Date, genre: 'spook'}];
+    bookData: Book[] = [];
     bookCopyData: BookCopy[] = [];
     borrowsData: Borrows[] = [];
     branchData: Branch[] = [];
@@ -58,13 +58,19 @@ export class TableListComponent {
 
     constructor(private router: Router, private table: TableService) {
         this.table.getBookTable().subscribe(data => {
-            this.bookData = data;
+            this.bookData = data.map(book => ({
+                ...book,
+                PUBLISH_DATE: new Date(book.PUBLISH_DATE).toLocaleDateString('en-CA')
+            }));
         });
         this.table.getBookCopyTable().subscribe(data => {
             this.bookCopyData = data;
         });
         this.table.getBorrowsTable().subscribe(data => {
-            this.borrowsData = data;
+            this.borrowsData = data.map(book => ({
+                ...book,
+                DUE_DATE: new Date(book.DUE_DATE).toLocaleDateString('en-CA')
+            }));;
         });
         this.table.getFullTimeTable().subscribe(data => {
             this.fullTimeData = data;
@@ -73,6 +79,8 @@ export class TableListComponent {
             this.libMemberData = data;
         });
         this.table.getPartTimeTable().subscribe(data => {
+            console.log(data);
+            console.log("helloooo");
             this.partTimeData = data;
         });
         this.table.getQueueHoldTable().subscribe(data => {
@@ -95,11 +103,11 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.book_ID.toString().includes(lowerCaseSearchValue) 
-            || item.author.toLowerCase().includes(lowerCaseSearchValue)
-            || item.title.toLowerCase().includes(lowerCaseSearchValue)
-            || item.genre.toLowerCase().includes(lowerCaseSearchValue)
-            || item.date.toString().includes(lowerCaseSearchValue) 
+            item.BOOK_ID.toString().includes(lowerCaseSearchValue) 
+            || item.TITLE.toLowerCase().includes(lowerCaseSearchValue)
+            || item.AUTHOR.toLowerCase().includes(lowerCaseSearchValue)
+            || item.GENRE.toLowerCase().includes(lowerCaseSearchValue)
+            || item.PUBLISH_DATE.toString().includes(lowerCaseSearchValue) 
         );
 
         return filteredResults;
@@ -114,11 +122,11 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.copy_ID.toString().includes(lowerCaseSearchValue) 
-            || item.book_ID.toString().includes(lowerCaseSearchValue) 
-            || item.damaged.toString().includes(lowerCaseSearchValue)
-            || item.located_at.toString().includes(lowerCaseSearchValue)
-            || item.provided_by.toString().includes(lowerCaseSearchValue) 
+            item.COPY_ID.toString().includes(lowerCaseSearchValue) 
+            || item.BOOK_ID.toString().includes(lowerCaseSearchValue) 
+            || item.DAMAGED.toString().includes(lowerCaseSearchValue)
+            || item.LOCATED_AT.toString().includes(lowerCaseSearchValue)
+            || item.PROVIDED_BY.toString().includes(lowerCaseSearchValue) 
         );
 
         return filteredResults;
@@ -133,10 +141,10 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.book_ID.toString().includes(lowerCaseSearchValue) 
-            || item.copy_ID.toString().includes(lowerCaseSearchValue) 
-            || item.member_ID.toString().includes(lowerCaseSearchValue)
-            || item.due_date.toString().includes(lowerCaseSearchValue) 
+            item.BOOK_ID.toString().includes(lowerCaseSearchValue) 
+            || item.COPY_ID.toString().includes(lowerCaseSearchValue) 
+            || item.MEMBER_ID.toString().includes(lowerCaseSearchValue)
+            || item.DUE_DATE.toString().includes(lowerCaseSearchValue) 
         );
 
         return filteredResults;
@@ -172,15 +180,15 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.staff_ID.toString().includes(lowerCaseSearchValue) 
-            || item.first_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.last_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.email.toLowerCase().includes(lowerCaseSearchValue)
-            || item.staff_role.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.phone_number.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.managed_by.toString().includes(lowerCaseSearchValue) 
-            || item.works_at.toString().includes(lowerCaseSearchValue) 
-            || item.salary.toString().includes(lowerCaseSearchValue)
+            item.STAFF_ID.toString().includes(lowerCaseSearchValue) 
+            || item.FIRST_NAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.LAST_NAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.EMAIL.toLowerCase().includes(lowerCaseSearchValue)
+            || item.STAFF_ROLE.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.PHONE_NUMBER.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.MANAGED_BY.toString().includes(lowerCaseSearchValue) 
+            || item.WORKS_AT.toString().includes(lowerCaseSearchValue) 
+            || item.SALARY.toString().includes(lowerCaseSearchValue)
         );
 
         return filteredResults;
@@ -195,9 +203,9 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.member_ID.toString().includes(lowerCaseSearchValue) 
-            || item.username.toLowerCase().includes(lowerCaseSearchValue)
-            || item.email.toLowerCase().includes(lowerCaseSearchValue)
+            item.MEMBER_ID.toString().includes(lowerCaseSearchValue) 
+            || item.USERNAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.EMAIL.toLowerCase().includes(lowerCaseSearchValue)
         );
 
         return filteredResults;
@@ -212,16 +220,16 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.staff_ID.toString().includes(lowerCaseSearchValue) 
-            || item.first_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.last_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.email.toLowerCase().includes(lowerCaseSearchValue)
-            || item.staff_role.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.phone_number.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.managed_by.toString().includes(lowerCaseSearchValue) 
-            || item.works_at.toString().includes(lowerCaseSearchValue) 
-            || item.hourly_rate.toString().includes(lowerCaseSearchValue)
-            || item.bi_weekly_hours.toString().includes(lowerCaseSearchValue)
+            item.STAFF_ID.toString().includes(lowerCaseSearchValue) 
+            || item.FIRST_NAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.LAST_NAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.EMAIL.toLowerCase().includes(lowerCaseSearchValue)
+            || item.STAFF_ROLE.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.PHONE_NUMBER.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.MANAGED_BY.toString().includes(lowerCaseSearchValue) 
+            || item.WORKS_AT.toString().includes(lowerCaseSearchValue) 
+            || item.HOURLY_RATE.toString().includes(lowerCaseSearchValue)
+            || item.BI_WEEKLY_HOURS.toString().includes(lowerCaseSearchValue)
         );
 
         return filteredResults;
@@ -271,15 +279,15 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.staff_ID.toString().includes(lowerCaseSearchValue) 
-            || item.first_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.last_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.email.toLowerCase().includes(lowerCaseSearchValue)
-            || item.staff_role.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.phone_number.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.managed_by.toString().includes(lowerCaseSearchValue) 
-            || item.works_at.toString().includes(lowerCaseSearchValue) 
-            || item.total_hours.toString().includes(lowerCaseSearchValue)
+            item.STAFF_ID.toString().includes(lowerCaseSearchValue) 
+            || item.FIRST_NAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.LAST_NAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.EMAIL.toLowerCase().includes(lowerCaseSearchValue)
+            || item.STAFF_ROLE.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.PHONE_NUMBER.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.MANAGED_BY.toString().includes(lowerCaseSearchValue) 
+            || item.WORKS_AT.toString().includes(lowerCaseSearchValue) 
+            || item.TOTAL_HOURS.toString().includes(lowerCaseSearchValue)
         );
 
         return filteredResults;
