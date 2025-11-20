@@ -379,7 +379,7 @@ export async function sql_injector(sqlCommand)
 
         
 //Testing functions
-// await create_oracle_pool("vdorovic", "06076174");
+// await create_oracle_pool(user, pass);
 // await sql_injector("DROP TABLE located_at");
 // await drop_tables();
 
