@@ -72,6 +72,9 @@ export class TableListComponent {
                 DUE_DATE: new Date(book.DUE_DATE).toLocaleDateString('en-CA')
             }));;
         });
+        this.table.getBranchTable().subscribe(data => {
+            this.branchData = data;
+        });
         this.table.getFullTimeTable().subscribe(data => {
             this.fullTimeData = data;
         });
@@ -79,8 +82,6 @@ export class TableListComponent {
             this.libMemberData = data;
         });
         this.table.getPartTimeTable().subscribe(data => {
-            console.log(data);
-            console.log("helloooo");
             this.partTimeData = data;
         });
         this.table.getQueueHoldTable().subscribe(data => {
@@ -159,13 +160,13 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.branch_ID.toString().includes(lowerCaseSearchValue) 
-            || item.branch_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.address_street_name.toLowerCase().includes(lowerCaseSearchValue)
-            || item.address_street.toLowerCase().includes(lowerCaseSearchValue)
-            || item.address_city.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.address_province.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.address_postal_code.toLowerCase().includes(lowerCaseSearchValue) 
+            item.BRANCH_ID.toString().includes(lowerCaseSearchValue) 
+            || item.BRANCH_NAME.toLowerCase().includes(lowerCaseSearchValue)
+            || item.ADDRESS_STREET_NUMBER.toLowerCase().includes(lowerCaseSearchValue)
+            || item.ADDRESS_STREET.toLowerCase().includes(lowerCaseSearchValue)
+            || item.ADDRESS_CITY.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.ADDRESS_PROVINCE.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.ADDRESS_POSTAL_CODE.toLowerCase().includes(lowerCaseSearchValue) 
         );
 
         return filteredResults;
@@ -244,9 +245,9 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.book_ID.toString().includes(lowerCaseSearchValue) 
-            || item.place_in_queue.toString().includes(lowerCaseSearchValue) 
-            || item.member_ID.toString().includes(lowerCaseSearchValue) 
+            item.BOOK_ID.toString().includes(lowerCaseSearchValue) 
+            || item.PLACE_IN_QUEUE.toString().includes(lowerCaseSearchValue) 
+            || item.MEMBER_ID.toString().includes(lowerCaseSearchValue) 
         );
 
         return filteredResults;
@@ -261,10 +262,10 @@ export class TableListComponent {
 
         const lowerCaseSearchValue = search.toLowerCase();
         filteredResults = filteredResults.filter(item =>
-            item.supplier_ID.toString().includes(lowerCaseSearchValue) 
-            || item.phone_number.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.email.toLowerCase().includes(lowerCaseSearchValue) 
-            || item.supplier_name.toLowerCase().includes(lowerCaseSearchValue) 
+            item.SUPPLIER_ID.toString().includes(lowerCaseSearchValue) 
+            || item.PHONE_NUMBER.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.EMAIL.toLowerCase().includes(lowerCaseSearchValue) 
+            || item.SUPPLIER_NAME.toLowerCase().includes(lowerCaseSearchValue) 
         );
 
         return filteredResults;

@@ -19,13 +19,9 @@ export class UserService {
     constructor(private http:HttpClient) {}
 
     login(userLogin:User):Observable<User>{
-        console.log(userLogin)
-        // temp remove when connected
-        // this.userSubject.next(userLogin);
         return this.http.post<User>(LOGIN_URL, userLogin).pipe(
             tap({
                 next: (answer) =>{
-                    console.log(answer)
                     localStorage.setItem('User', JSON.stringify(answer.username));
                     this.userSubject.next(answer);
                 },

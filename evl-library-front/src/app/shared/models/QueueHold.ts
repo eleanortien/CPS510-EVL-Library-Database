@@ -1,5 +1,5 @@
 export class QueueHold {
-    book_ID!: number;
-    place_in_queue!: number;
-    member_ID!: number;
+    BOOK_ID!: number;
+    PLACE_IN_QUEUE!: number;
+    MEMBER_ID!: number;
 }

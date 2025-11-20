@@ -37,15 +37,27 @@ export class QueriesDisplayComponent {
                                     ['title']];
     dataSource = this.data;
 
-    constructor(private router: Router, private simple: TableService) {
+    constructor(private router: Router, private table: TableService) {
         if (this.queryId) {
-            this.simple.getQueryTable(+this.queryId).subscribe(data => {
-                this.data = data;
-            });
+            if (+this.queryId<13) {
+                this.table.getSimpleQueryTable(+this.queryId).subscribe(data => {
+                    console.log(data);
+                    this.data = data;
+                });
+            }
+            else {
+                this.table.getAdvanceQueryTable(+this.queryId-12).subscribe(data => {
+                    this.data = data;
+                });
+            }
         }
     }
 
     goBack() {
         this.router.navigate(['/queries']);
+    }
+
+    formatDate(date: string) : string {
+        return new Date(date).toLocaleDateString('en-CA');
     }
 }

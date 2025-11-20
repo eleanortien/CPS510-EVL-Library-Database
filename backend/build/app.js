@@ -93,13 +93,14 @@ app.get("/view-tables/:querykey", async (req, res) => {
         res.status(201).json(result);
     }
     catch (err) {
-        res.status(400).send("Unable to create connection to Oracle DB");
+        res.status(400).send(err);
     }
 });
 //Runs user inputted sql - sends successful or unsuccessful
 app.post("/run-command", async (req, res) => {
     try {
         const body = req.body;
+        console.log(body);
         const { sqlCommand } = req.body;
         await sql_injector(sqlCommand);
         res.status(200).send("Successfully ran: " + sqlCommand);

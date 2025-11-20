@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Book } from '../shared/models/Book';
 import { BookCopy } from '../shared/models/BookCopy';
 import { Borrows } from '../shared/models/Borrows';
@@ -11,7 +11,7 @@ import { LibMember } from '../shared/models/LibMember';
 import { QueueHold } from '../shared/models/QueueHold';
 import { Supplier } from '../shared/models/Supplier';
 import { VolunteerStaff } from '../shared/models/VolunteerStaf';
-import { BASE_URL, CREATE_TABLES_URL, DROP_TABLES_URL, POPULATE_TABLES_URL, VIEW_TABLES_URL } from '../shared/constants/urls';
+import { ADVANCED_QUERY_URL, BASE_URL, CREATE_TABLES_URL, DROP_TABLES_URL, POPULATE_TABLES_URL, RUN_USER_SQL_URL, SIMPLE_QUERY_URL, VIEW_TABLES_URL } from '../shared/constants/urls';
 
 export const TABLE_URL = BASE_URL + '/table/';
 export const QUERY_URL = BASE_URL + '/query/';
@@ -75,11 +75,15 @@ export class TableService {
         return this.http.get<VolunteerStaff[]>(VIEW_TABLES_URL("volunteer_staff"));
     }
     
-    getQueryTable(which: number): Observable<any[]> {
-        return this.http.get<any[]>(QUERY_URL + which);
+    getSimpleQueryTable(which: number): Observable<any[]> {
+        return this.http.get<any[]>(SIMPLE_QUERY_URL(which));
+    }
+
+    getAdvanceQueryTable(which: number): Observable<any[]> {
+        return this.http.get<any[]>(ADVANCED_QUERY_URL(which));
     }
 
     updateTable(code: string): Observable<any[]> {
-        return this.http.post<any[]>(TABLE_URL, code);
+        return this.http.post<any[]>(RUN_USER_SQL_URL, {sqlCommand: code});
     }
 }

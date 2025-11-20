@@ -1,9 +1,9 @@
 export class Branch {
-    branch_ID!: number;
-    branch_name!: string;
-    address_street_name!: string;
-    address_street!: string;
-    address_city!: string;
-    address_province!: string;
-    address_postal_code!: string;
+    BRANCH_ID!: number;
+    BRANCH_NAME!: string;
+    ADDRESS_STREET_NUMBER!: string;
+    ADDRESS_STREET!: string;
+    ADDRESS_CITY!: string;
+    ADDRESS_PROVINCE!: string;
+    ADDRESS_POSTAL_CODE!: string;
 }

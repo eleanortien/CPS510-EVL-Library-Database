@@ -21,8 +21,12 @@ export class UpdatePageComponent {
     update() {
         var code = this.code.getRawValue();
         if (code) {
-            this.table.updateTable(code);
+            this.table.updateTable(code).subscribe(_ => {
+                console.log("updated");
+            });
         }
+        
+        this.code.reset('');
     }
 
     back() {

@@ -4,10 +4,10 @@
     <!-- Table 1 -->
     <h2>Book Table</h2>
     
-    <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="bookFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="bookFilter">
+    </div>
 
     <table mat-table [dataSource]="filterBooks(bookFilter)" class="mat-elevation-z8 table">
 
@@ -43,10 +43,10 @@
     <!-- Table 2 -->
     <h2>Book Copy Table</h2>
     
-    <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="bookCopyFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="bookCopyFilter">
+    </div>
 
     <table mat-table [dataSource]="filterBookCopies(bookCopyFilter)" class="mat-elevation-z8 table">
 
@@ -82,10 +82,10 @@
     <!-- Table 3 -->
     <h2>Borrows Table</h2>
     
-    <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="borrowsFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="borrowsFilter">
+    </div>
 
     <table mat-table [dataSource]="filterBorrows(borrowsFilter)" class="mat-elevation-z8 table">
 
@@ -116,59 +116,59 @@
     <!-- Table 4 -->
     <h2>Branch Table</h2>
     
-    <!-- <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="branchFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="branchFilter">
+    </div>
 
     <table mat-table [dataSource]="filterBranches(branchFilter)" class="mat-elevation-z8 table">
 
         <ng-container matColumnDef="branch_ID">
         <th mat-header-cell *matHeaderCellDef> Branch ID </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.branch_ID}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.BRANCH_ID}} </td>
         </ng-container>
         
         <ng-container matColumnDef="branch_name">
         <th mat-header-cell *matHeaderCellDef> Branch Name </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.branch_name}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.BRANCH_NAME}} </td>
         </ng-container>
 
         <ng-container matColumnDef="address_street_name">
         <th mat-header-cell *matHeaderCellDef> Street Name </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.address_street_name}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.ADDRESS_STREET_NUMBER}} </td>
         </ng-container>
 
         <ng-container matColumnDef="address_street">
         <th mat-header-cell *matHeaderCellDef> Street </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.address_street}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.ADDRESS_STREET}} </td>
         </ng-container>
 
         <ng-container matColumnDef="address_city">
         <th mat-header-cell *matHeaderCellDef> City </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.address_city}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.ADDRESS_CITY}} </td>
         </ng-container>
 
         <ng-container matColumnDef="address_province">
         <th mat-header-cell *matHeaderCellDef> Province </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.address_province}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.ADDRESS_PROVINCE}} </td>
         </ng-container>
 
         <ng-container matColumnDef="address_postal_code">
         <th mat-header-cell *matHeaderCellDef> Postal Code </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.address_postal_code}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.ADDRESS_POSTAL_CODE}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns[3]"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns[3];"></tr>
-    </table> -->
+    </table>
     
     <!-- Table 5 -->
     <h2>Full Time Staff Table</h2>
     
-    <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="fullTimeFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="fullTimeFilter">
+    </div>
 
     <table mat-table [dataSource]="filterFullTimers(fullTimeFilter)" class="mat-elevation-z8 table">
 
@@ -224,10 +224,10 @@
     <!-- Table 6 -->
     <h2>Library Members Table</h2>
     
-    <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="libMemberFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="libMemberFilter">
+    </div>
 
     <table mat-table [dataSource]="filterLibMembers(libMemberFilter)" class="mat-elevation-z8 table">
 
@@ -253,10 +253,10 @@
     <!-- Table 7 -->
     <h2>Part Time Staff Table</h2>
     
-    <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="partTimeFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="partTimeFilter">
+    </div>
 
     <table mat-table [dataSource]="filterPartTimers(partTimeFilter)" class="mat-elevation-z8 table">
         
@@ -317,73 +317,73 @@
     <!-- Table 8 -->
     <h2>Queue Hold Table</h2>
     
-    <!-- <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="queueFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="queueFilter">
+    </div>
 
     <table mat-table [dataSource]="filterQueueHolds(queueFilter)" class="mat-elevation-z8 table">
 
         <ng-container matColumnDef="book_ID">
         <th mat-header-cell *matHeaderCellDef> Book ID </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.book_ID}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.BOOK_ID}} </td>
         </ng-container>
 
         <ng-container matColumnDef="place_in_queue">
         <th mat-header-cell *matHeaderCellDef> Place In Queue </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.place_in_queue}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.PLACE_IN_QUEUE}} </td>
         </ng-container>
 
         <ng-container matColumnDef="member_ID">
         <th mat-header-cell *matHeaderCellDef> Member </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.member_ID}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.MEMBER_ID}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns[7]"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns[7];"></tr>
-    </table> -->
+    </table>
     
     <!-- Table 9 -->
-    <h2>Queue Hold Table</h2>
+    <h2>Supplier Table</h2>
     
-    <!-- <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="supplierFilter">
-    </mat-form-field>
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="supplierFilter">
+    </div>
 
     <table mat-table [dataSource]="filterSuppliers(supplierFilter)" class="mat-elevation-z8 table">
 
         <ng-container matColumnDef="supplier_ID">
         <th mat-header-cell *matHeaderCellDef> Book ID </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.supplier_ID}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.SUPPLIER_ID}} </td>
         </ng-container>
 
         <ng-container matColumnDef="phone_number">
         <th mat-header-cell *matHeaderCellDef> Place In Queue </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.phone_number}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.PHONE_NUMBER}} </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef> Member </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.email}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.EMAIL}} </td>
         </ng-container>
 
         <ng-container matColumnDef="supplier_name">
         <th mat-header-cell *matHeaderCellDef> Member </th>
-        <td mat-cell *matCellDef="let cell"> {{cell.supplier_name}} </td>
+        <td mat-cell *matCellDef="let cell"> {{cell.SUPPLIER_NAME}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns[8]"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns[8];"></tr>
-    </table> -->
+    </table>
 
     <!-- Table 10 -->
     <h2>Volunteer Staff Table</h2>
-    
-    <mat-form-field class="example-full-width">
-        <mat-label>Search</mat-label>
-        <input matInput [(ngModel)]="volunteerFilter">
-    </mat-form-field>
+
+    <div class="search">
+        <label>Search: </label>
+        <input [(ngModel)]="volunteerFilter">
+    </div>
 
     <table mat-table [dataSource]="filterVolunteers(volunteerFilter)" class="mat-elevation-z8 table">
 

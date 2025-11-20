@@ -13,7 +13,7 @@ export async function create_oracle_pool(username, password) {
             connectString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle12c.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl12c)))",
             poolIncrement: 1,
             poolMin: 0,
-            poolMax: 5,
+            poolMax: 100,
             poolAlias: "default"
         });
     }
@@ -153,8 +153,9 @@ export async function simple_query_tables(querynum) {
         let sqlCommand = Statements.simpleQueries[querynum];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT });
         let res = JSON.stringify(result.rows);
+        console.log(res);
         console.log("Successfully ran simple query on tables.");
-        return res;
+        return result.rows;
     }
     catch (err) {
         console.error(sqlCommand + ": " + err);
@@ -189,8 +190,9 @@ export async function advanced_query_tables(querynum) {
         let sqlCommand = Statements.advancedQueries[querynum];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT });
         let res = JSON.stringify(result.rows);
+        console.log(res);
         console.log("Successfully ran advanced query on tables.");
-        return res;
+        return result.rows;
     }
     catch (err) {
         console.error(sqlCommand + ": " + err);
@@ -224,8 +226,6 @@ export async function view_tables(querykey) {
         }
         let sqlCommand = Statements.viewTables[querykey];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT });
-        let res = JSON.stringify(result.rows);
-        console.log(res);
         console.log("Successfully retrieved table.");
         return result.rows;
     }

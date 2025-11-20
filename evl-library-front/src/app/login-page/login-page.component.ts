@@ -28,9 +28,6 @@ export class LoginPageComponent {
             this.userService.login(userObj).subscribe(_ => {
                 this.router.navigate(['/']);
             });
-            // temp get rid of when connecting
-            // localStorage.setItem('User', JSON.stringify(userObj));
-            //     this.router.navigate(['/']);
         }
     }
 }
