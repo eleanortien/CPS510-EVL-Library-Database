@@ -1,0 +1,21 @@
+<div class="update-div">
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title class="header-title">Upate Query</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+            <p>Here you can type in sql code to update your tables. Please only update entries in the table, changes to the table structure is not allowed.</p>
+            <mat-form-field>
+                <mat-label>Code</mat-label>
+                <textarea matInput [formControl]="code"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-footer>
+            <mat-card-actions class="action-buttons">
+                <button matButton="filled" class="my-custom-button" (click)="back()">Back</button>
+                <button matButton="filled" class="my-custom-button" (click)="update()">Update</button>
+            </mat-card-actions>
+        </mat-card-footer>
+    </mat-card>
+</div>
+

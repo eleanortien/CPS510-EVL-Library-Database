@@ -1,0 +1,42 @@
+<main class="main">
+    <header>
+        <div class="header-div">
+        <h1 class="title">EVL Library Systems</h1>
+        <div class="button-container">
+            <button matIconButton [matMenuTriggerFor]="menu">
+                <mat-icon class="icon">menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                @if (this.user) {
+                    <button mat-menu-item (click)="rederect('')">
+                        <mat-icon class="icon">home</mat-icon>
+                        Home
+                    </button>
+                    <button mat-menu-item (click)="rederect('table-list')">
+                        <mat-icon class="icon">view_list</mat-icon>
+                        Table List
+                    </button>
+                    <button mat-menu-item (click)="rederect('queries')">
+                        <mat-icon class="icon">code</mat-icon>
+                        Queries
+                    </button>
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon class="icon">exit_to_app</mat-icon>
+                        Logout
+                    </button>
+                }
+                @else {
+                    <button mat-menu-item (click)="rederect('login')">
+                        <mat-icon class="icon">perm_identity</mat-icon>
+                        Login
+                    </button>
+                }
+            </mat-menu>
+        </div>
+        </div>
+    </header>
+
+    <router-outlet></router-outlet>
+
+</main>
+

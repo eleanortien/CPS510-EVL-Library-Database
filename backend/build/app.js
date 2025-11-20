@@ -16,10 +16,10 @@ app.post("/login", async (req, res) => {
     const { username, password } = req.body;
     try {
         await create_oracle_pool(username, password);
-        res.status(200).send("Login successful");
+        res.status(200).send({ username, password });
     }
     catch (err) {
-        res.status(401).send("Login unsuccessful");
+        res.status(401).send(err);
     }
 });
 //Close function: closes Oracle session - sends successful or unsuccessful response
@@ -37,30 +37,30 @@ app.post("/close-session", async (req, res) => {
 app.get("/drop", async (req, res) => {
     try {
         await drop_tables();
-        res.status(200).send("Successfully dropped tables");
+        res.status(200).send({ success: true });
     }
     catch (err) {
-        res.status(400).send("Unable to create connection to Oracle DB");
+        res.status(400).send({ success: false });
     }
 });
 //Create function - sends successful or unsuccessful response
 app.get("/create", async (req, res) => {
     try {
         await create_tables();
-        res.status(200).send("Successfully created tables");
+        res.status(200).send({ success: true });
     }
     catch (err) {
-        res.status(400).send("Unable to create connection to Oracle DB");
+        res.status(400).send({ success: false });
     }
 });
 //Populate function - sends successful or unsuccessful response
 app.get("/populate", async (req, res) => {
     try {
         await populate_tables();
-        res.status(200).send("Successfully populated tables");
+        res.status(200).send({ success: true });
     }
     catch (err) {
-        res.status(400).send("Unable to create connection to Oracle DB");
+        res.status(400).send({ success: false });
     }
 });
 //Simple query function - takes in querynum and sends resulting json
@@ -93,13 +93,14 @@ app.get("/view-tables/:querykey", async (req, res) => {
         res.status(201).json(result);
     }
     catch (err) {
-        res.status(400).send("Unable to create connection to Oracle DB");
+        res.status(400).send(err);
     }
 });
 //Runs user inputted sql - sends successful or unsuccessful
 app.post("/run-command", async (req, res) => {
     try {
         const body = req.body;
+        console.log(body);
         const { sqlCommand } = req.body;
         await sql_injector(sqlCommand);
         res.status(200).send("Successfully ran: " + sqlCommand);

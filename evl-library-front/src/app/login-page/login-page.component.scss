@@ -1,0 +1,31 @@
+.login-div {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 170px;
+}
+
+.mat-mdc-button-base.my-custom-button {
+  background-color: #BD4545 !important;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+    color: #BD4545 !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 30px;
+}

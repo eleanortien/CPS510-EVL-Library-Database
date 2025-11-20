@@ -13,7 +13,7 @@ export async function create_oracle_pool(username, password) {
             connectString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle12c.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl12c)))",
             poolIncrement: 1,
             poolMin: 0,
-            poolMax: 5,
+            poolMax: 100,
             poolAlias: "default"
         });
     }
@@ -153,8 +153,9 @@ export async function simple_query_tables(querynum) {
         let sqlCommand = Statements.simpleQueries[querynum];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT });
         let res = JSON.stringify(result.rows);
+        console.log(res);
         console.log("Successfully ran simple query on tables.");
-        return res;
+        return result.rows;
     }
     catch (err) {
         console.error(sqlCommand + ": " + err);
@@ -189,8 +190,9 @@ export async function advanced_query_tables(querynum) {
         let sqlCommand = Statements.advancedQueries[querynum];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT });
         let res = JSON.stringify(result.rows);
+        console.log(res);
         console.log("Successfully ran advanced query on tables.");
-        return res;
+        return result.rows;
     }
     catch (err) {
         console.error(sqlCommand + ": " + err);
@@ -224,9 +226,8 @@ export async function view_tables(querykey) {
         }
         let sqlCommand = Statements.viewTables[querykey];
         let result = await connection.execute(sqlCommand, [], { outFormat: oracledb.OBJECT });
-        let res = JSON.stringify(result.rows);
         console.log("Successfully retrieved table.");
-        return res;
+        return result.rows;
     }
     catch (err) {
         console.error(sqlCommand + ": " + err);
@@ -278,13 +279,13 @@ export async function sql_injector(sqlCommand) {
     }
 }
 //Testing functions
-// await create_oracle_pool(process.env.USER, process.env.PASSWORD);
+// await create_oracle_pool("vdorovic", "06076174");
+// await sql_injector("DROP TABLE located_at");
 // await drop_tables();
 // await create_tables();
 // await populate_tables();
 // await simple_query_tables(1);
 // await advanced_query_tables(1);
 // await view_tables("lib_member");
-// await sql_injector("DROP TABLE borrows");
 // await sql_injector("INSERT INTO lib_member VALUES (0, 'etien', 'x')");
 //# sourceMappingURL=db.js.map

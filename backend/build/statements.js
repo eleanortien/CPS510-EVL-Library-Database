@@ -378,7 +378,7 @@ export const Statements = {
         5: `SELECT staff_ID, first_name, last_name, total_hours
         FROM volunteer_staff
         WHERE total_hours = (SELECT MAX(total_hours) FROM volunteer_staff)`,
-        6: `SELECT address_city, COUNT(branch_ID)
+        6: `SELECT address_city, COUNT(branch_ID) as Num_of_Branches
         FROM branch
         WHERE address_province = 'Ontario'
         GROUP BY address_city`,

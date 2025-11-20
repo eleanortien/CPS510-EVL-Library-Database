@@ -1,0 +1,20 @@
+<div class="welcome-div">
+    <h1 class="welcome-text">Welcome!</h1>
+
+    <div class="button-row">
+        @if (tables) {
+            <button matButton="filled" class="my-custom-button" (click)="drop()">Drop Tables</button>
+            <button matButton="filled" class="my-custom-button" (click)="populate()">Populate Tables</button>
+        }
+        @else if (!tables) {
+            <button matButton="filled" class="my-custom-button" (click)="create()">Create Tables</button>
+        }
+    </div>
+    <div class="button-row">
+        @if (tables) {
+            <button matButton="filled" class="my-custom-button" (click)="rederect('table-list')">View Tables</button>
+            <button matButton="filled" class="my-custom-button" (click)="rederect('queries')">Querie Tables</button>
+            <button matButton="filled" class="my-custom-button" (click)="rederect('update')">Update Tables</button>
+        }
+    </div>
+</div>

@@ -7,34 +7,14 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 username: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 email: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 title?: never;
@@ -79,54 +59,21 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 title: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 author: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 publish_date: {
-                    type: oracledb.DbType & {
-                        num: 2012;
-                        name: "DB_TYPE_TIMESTAMP";
-                        columnTypeName: "TIMESTAMP";
-                        oraTypeNum: 180;
-                        bufferSizeFactor: 11;
-                    };
+                    type: any;
                 };
                 genre: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 username?: never;
@@ -171,45 +118,18 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 phone_number: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 email: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 supplier_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 username?: never;
@@ -254,76 +174,29 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 branch_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 street_number: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 street: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 city: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 province: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 postal_code: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 username?: never;
@@ -368,49 +241,19 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 copy_id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 book_id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 damaged: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 located_at: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 provided_by: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 id?: never;
                 username?: never;
@@ -454,95 +297,36 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 first_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 last_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 email: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 staff_role: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 phone_number: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 managed_by: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 works_at: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 salary: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 username?: never;
                 title?: never;
@@ -596,104 +380,39 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 first_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 last_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 email: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 staff_role: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 phone_number: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 managed_by: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 works_at: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 hourly_rate: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 bi_weekly_hours: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 username?: never;
                 title?: never;
@@ -737,95 +456,36 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 first_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 last_name: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 email: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 staff_role: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 phone_number: {
-                    type: oracledb.DbType & {
-                        num: 2001;
-                        name: "DB_TYPE_VARCHAR";
-                        columnTypeName: "VARCHAR2";
-                        oraTypeNum: 1;
-                        bufferSizeFactor: 4;
-                        csfrm: oracledb.CSFRM_IMPLICIT;
-                    };
+                    type: any;
                     maxSize: number;
                 };
                 managed_by: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 works_at: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 total_hours: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 username?: never;
                 title?: never;
@@ -869,40 +529,16 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 copy_id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 book_id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 member_id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 due_date: {
-                    type: oracledb.DbType & {
-                        num: 2012;
-                        name: "DB_TYPE_TIMESTAMP";
-                        columnTypeName: "TIMESTAMP";
-                        oraTypeNum: 180;
-                        bufferSizeFactor: 11;
-                    };
+                    type: any;
                 };
                 id?: never;
                 username?: never;
@@ -946,31 +582,13 @@ export namespace Statements {
             autoCommit: boolean;
             bindDefs: {
                 id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 place_in_queue: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 member_id: {
-                    type: oracledb.DbType & {
-                        num: 2010;
-                        name: "DB_TYPE_NUMBER";
-                        columnTypeName: "NUMBER";
-                        oraTypeNum: 2;
-                        bufferSizeFactor: 22;
-                    };
+                    type: any;
                 };
                 username?: never;
                 email?: never;
@@ -1044,5 +662,4 @@ export namespace Statements {
         let book: string;
     }
 }
-import oracledb from 'oracledb';
 //# sourceMappingURL=statements.d.ts.map
